@@ -141,6 +141,17 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 		 card_14.y = 170;
 		 card_15.y = 170;
 		 card_16.y = 170;
+		 
+		 for (var i = 0 ; 1 < 12 ; i++) {
+			 var name;
+			 if( i < 6) {
+				 name = "card_0" + (new String( i + 1 ));
+				 }else {
+				 name = "card_1" + (new String( i - 6 ));
+				 }
+			 card_num[i] = name;
+			}
+		console.log(card_num);
 		
 		card_01_status = [true,0,status,1];
 		card_02_status = [true,0,status,2];
@@ -535,7 +546,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/sample_atlas_.png?1573197255345", id:"sample_atlas_"}
+		{src:"images/sample_atlas_.png?1573448427157", id:"sample_atlas_"}
 	],
 	preloads: []
 };
