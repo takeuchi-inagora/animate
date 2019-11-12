@@ -84,19 +84,19 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 		
 		
 		//画像読み込み
-		 card_01 = new createjs.Bitmap("imagePath-assets/card_01.png");
-		 card_02 = new createjs.Bitmap("imagePath-assets/card_02.png");
-		 card_03 = new createjs.Bitmap("imagePath-assets/card_03.png");
-		 card_04 = new createjs.Bitmap("imagePath-assets/card_04.png");
-		 card_05 = new createjs.Bitmap("imagePath-assets/card_05.png");
-		 card_06 = new createjs.Bitmap("imagePath-assets/card_06.png");
+		 card_01 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_02 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_03 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_04 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_05 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_06 = new createjs.Bitmap("imagePath-assets/card_ura.png");
 		
-		 card_11 = new createjs.Bitmap("imagePath-assets/card_01.png");
-		 card_12 = new createjs.Bitmap("imagePath-assets/card_02.png");
-		 card_13 = new createjs.Bitmap("imagePath-assets/card_03.png");
-		 card_14 = new createjs.Bitmap("imagePath-assets/card_04.png");
-		 card_15 = new createjs.Bitmap("imagePath-assets/card_05.png");
-		 card_16 = new createjs.Bitmap("imagePath-assets/card_06.png");
+		 card_11 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_12 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_13 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_14 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_15 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+		 card_16 = new createjs.Bitmap("imagePath-assets/card_ura.png");
 		
 		 stage.addChild(card_01);
 		 stage.addChild(card_02);
@@ -113,61 +113,71 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 		 stage.addChild(card_16);
 		 
 		 //x座標
-		 card_01.x = 10;
-		 card_02.x = 170;
-		 card_03.x = 170*2;
-		 card_04.x = 170*3;
-		 card_05.x = 170*4;
-		 card_06.x = 170*5;
+		 var card_x = [10,170,340,510,680,850,10,170,340,510,680,850];
+		 //y座標
+		 var card_y = [10,10,10,10,10,10,170,170,170,170,170,170];
 		
-		 card_11.x = 10;
-		 card_12.x = 170;
-		 card_13.x = 170*2;
-		 card_14.x = 170*3;
-		 card_15.x = 170*4;
-		 card_16.x = 170*5;
+		for (var i = 0 ; i < 12 ; i++) {
+			var num = Math.floor(Math.random()*12);
+			//入れ替える数字を保存
+			//x座標
+			var card_num_x = card_x[i];
+			//y座標
+			var card_num_y = card_y[i];
+		
+			//xとyの座標を入れ替える
+			card_x[i] = card_x[num];
+			card_x[num] = card_num_x;
+		
+			card_y[i] = card_y[num];
+			card_y[num] = card_num_y;
+			}
+		
+		console.log("card_x ----> " + card_x);
+		console.log("card_y ----> " + card_y);
+		
+		 //x座標
+		 card_01.x = card_x[0];
+		 card_02.x = card_x[1];
+		 card_03.x = card_x[2];
+		 card_04.x = card_x[3];
+		 card_05.x = card_x[4];
+		 card_06.x = card_x[5];
+		
+		 card_11.x = card_x[6];
+		 card_12.x = card_x[7];
+		 card_13.x = card_x[8];
+		 card_14.x = card_x[9];
+		 card_15.x = card_x[10];
+		 card_16.x = card_x[11];
 		
 		//y座標
-		 card_01.y = 10;
-		 card_02.y = 10;
-		 card_03.y = 10;
-		 card_04.y = 10;
-		 card_05.y = 10;
-		 card_06.y = 10;
+		 card_01.y = card_y[0];
+		 card_02.y = card_y[1];
+		 card_03.y = card_y[2];
+		 card_04.y = card_y[3];
+		 card_05.y = card_y[4];
+		 card_06.y = card_y[5];
 		
-		 card_11.y = 170;
-		 card_12.y = 170;
-		 card_13.y = 170;
-		 card_14.y = 170;
-		 card_15.y = 170;
-		 card_16.y = 170;
-		 
-		 for (var i = 0 ; 1 < 12 ; i++) {
-			 var name;
-			 if( i < 6) {
-				 name = "card_0" + (new String( i + 1 ));
-				 }else {
-				 name = "card_1" + (new String( i - 6 ));
-				 }
-			 card_num[i] = name;
-			}
-		console.log(card_num);
+		 card_11.y = card_y[6];
+		 card_12.y = card_y[7];
+		 card_13.y = card_y[8];
+		 card_14.y = card_y[9];
+		 card_15.y = card_y[10];
+		 card_16.y = card_y[11];
 		
-		card_01_status = [true,0,status,1];
-		card_02_status = [true,0,status,2];
-		card_03_status = [true,0,status,3];
-		card_04_status = [true,0,status,4];
-		card_05_status = [true,0,status,5];
-		card_06_status = [true,0,status,6];
-		card_11_status = [true,0,status,1];
-		card_12_status = [true,0,status,2];
-		card_13_status = [true,0,status,3];
-		card_14_status = [true,0,status,4];
-		card_15_status = [true,0,status,5];
-		card_16_status = [true,0,status,6];
-		
-		//確認
-		console.log(card_01);
+		card_01_status = [false,0,status,1];
+		card_02_status = [false,0,status,2];
+		card_03_status = [false,0,status,3];
+		card_04_status = [false,0,status,4];
+		card_05_status = [false,0,status,5];
+		card_06_status = [false,0,status,6];
+		card_11_status = [false,0,status,1];
+		card_12_status = [false,0,status,2];
+		card_13_status = [false,0,status,3];
+		card_14_status = [false,0,status,4];
+		card_15_status = [false,0,status,5];
+		card_16_status = [false,0,status,6];
 		
 		// createjs.Ticker.addEventListener("tick", handleTick);
 		// function handleTick(e) {
@@ -195,24 +205,42 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_01_status[0]){
 					//Tween complete
 					card_01.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:10}, 300);
+					createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300);
 				}else{
 					//Tween complete
 					card_01.image.src = 'imagePath-assets/card_01.png';
-					createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:10}, 300);
+					createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_01_status[3];
+				}else{
+					card_pre = card_01_status[3];
+				}
+						
+			card_result(1);
 			}	
 		function handleComplete_card_02() {
 			
 			if(!card_02_status[0]){
 					//Tween complete
 					card_02.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:170}, 300);
+					createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300);
 				}else{
 					//Tween complete
 					card_02.image.src = 'imagePath-assets/card_02.png';
-					createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:170}, 300);
+					createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_02_status[3];
+				}else{
+					card_pre = card_02_status[3];
+				}
+						
+			card_result(2);
 			}	
 		
 		function handleComplete_card_03() {
@@ -220,12 +248,21 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_03_status[0]){
 					//Tween complete
 					card_03.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:340}, 300);
+					createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300);
 				}else{
 					//Tween complete
 					card_03.image.src = 'imagePath-assets/card_03.png';
-					createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:340}, 300);
+					createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_03_status[3];
+				}else{
+					card_pre = card_03_status[3];
+				}
+						
+			card_result(3);
 			}	
 		
 		function handleComplete_card_04() {
@@ -233,12 +270,21 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_04_status[0]){
 					//Tween complete
 					card_04.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:510}, 300);
+					createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300);
 				}else{
 					//Tween complete
 					card_04.image.src = 'imagePath-assets/card_04.png';
-					createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:510}, 300);
+					createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_04_status[3];
+				}else{
+					card_pre = card_04_status[3];
+				}
+						
+			card_result(4);
 			}	
 		
 		function handleComplete_card_05() {
@@ -246,12 +292,22 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_05_status[0]){
 					//Tween complete
 					card_05.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:680}, 300);
+					createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300);
 				}else{
 					//Tween complete
 					card_05.image.src = 'imagePath-assets/card_05.png';
-					createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:680}, 300);
+					createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_05_status[3];
+				}else{
+					card_pre = card_05_status[3];
+				}
+						
+			card_result(5);
+				
 			}	
 		
 		function handleComplete_card_06() {
@@ -259,12 +315,22 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_06_status[0]){
 					//Tween complete
 					card_06.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:850}, 300);
+					createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300);
 				}else{
 					//Tween complete
 					card_06.image.src = 'imagePath-assets/card_06.png';
-					createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:850}, 300);
+					createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_06_status[3];
+				}else{
+					card_pre = card_06_status[3];
+				}
+						
+			card_result(6);
+				
 			}	
 		
 		card_01.on("click", function(e) {
@@ -278,12 +344,12 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 				 //card_01.image.src = 'imagePath-assets/card_01.png';
 				 console.log("card_01 click");
 				 console.log(card_01[0]);
-				 createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:85}, 300).call(handleComplete_card_01);
+				 createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:card_x[0]+75}, 300).call(handleComplete_card_01);
 				 card_01_status[0] = false;
 				}else{
 				 //card_01.image.src = 'imagePath-assets/card_ura.png';
 				 console.log("card_01 click");
-				 createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:85}, 300).call(handleComplete_card_01);
+				 createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:card_x[0]+75}, 300).call(handleComplete_card_01);
 				 card_01_status[0] = true;
 				}
 			
@@ -294,11 +360,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_02_status[0]){
 				 card_02.image.src = 'imagePath-assets/card_02.png';
-				 createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:245}, 300).call(handleComplete_card_02);
+				 createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:card_x[1]+75}, 300).call(handleComplete_card_02);
 				 card_02_status[0] = false;
 				}else{
 				 card_02.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:245}, 300).call(handleComplete_card_02);
+				 createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:card_x[1]+75}, 300).call(handleComplete_card_02);
 				 card_02_status[0] = true;
 				}
 			
@@ -309,11 +375,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_03_status[0]){
 				 card_03.image.src = 'imagePath-assets/card_03.png';
-				 createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:415}, 300).call(handleComplete_card_03);
+				 createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:card_x[2]+75}, 300).call(handleComplete_card_03);
 				 card_03_status[0] = false;
 				}else{
 				 card_03.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:415}, 300).call(handleComplete_card_03);
+				 createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:card_x[2]+75}, 300).call(handleComplete_card_03);
 				 card_03_status[0] = true;
 				}
 			
@@ -324,11 +390,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_04_status[0]){
 				 card_04.image.src = 'imagePath-assets/card_04.png';
-				 createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:585}, 300).call(handleComplete_card_04);
+				 createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:card_x[3]+75}, 300).call(handleComplete_card_04);
 				 card_04_status[0] = false;
 				}else{
 				 card_04.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:585}, 300).call(handleComplete_card_04);
+				 createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:card_x[3]+75}, 300).call(handleComplete_card_04);
 				 card_04_status[0] = true;
 				}
 			
@@ -339,11 +405,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_05_status[0]){
 				 card_05.image.src = 'imagePath-assets/card_05.png';
-				 createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:755}, 300).call(handleComplete_card_05);
+				 createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:card_x[4]+75}, 300).call(handleComplete_card_05);
 				 card_05_status[0] = false;
 				}else{
 				 card_05.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:755}, 300).call(handleComplete_card_05);
+				 createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:card_x[4]+75}, 300).call(handleComplete_card_05);
 				 card_05_status[0] = true;
 				}
 		});
@@ -353,11 +419,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_06_status[0]){
 				 card_06.image.src = 'imagePath-assets/card_06.png';
-				 createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:925}, 300).call(handleComplete_card_06);
+				 createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:card_x[5]+75}, 300).call(handleComplete_card_06);
 				 card_06_status[0] = false;
 				}else{
 				 card_06.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:925}, 300).call(handleComplete_card_06);
+				 createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:card_x[5]+75}, 300).call(handleComplete_card_06);
 				 card_06_status[0] = true;
 				}
 		});
@@ -367,24 +433,43 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_11_status[0]){
 					//Tween complete
 					card_11.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:10}, 300);
+					createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300);
 				}else{
 					//Tween complete
 					card_11.image.src = 'imagePath-assets/card_01.png';
-					createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:10}, 300);
+					createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_11_status[3];
+				}else{
+					card_pre = card_11_status[3];
+				}
+						
+			card_result(11);
 			}	
+			
 		function handleComplete_card_12() {
 			
 			if(!card_12_status[0]){
 					//Tween complete
 					card_12.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:170}, 300);
+					createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300);
 				}else{
 					//Tween complete
 					card_12.image.src = 'imagePath-assets/card_02.png';
-					createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:170}, 300);
+					createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_12_status[3];
+				}else{
+					card_pre = card_12_status[3];
+				}
+						
+			card_result(12);
 			}	
 		
 		function handleComplete_card_13() {
@@ -392,12 +477,21 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_13_status[0]){
 					//Tween complete
 					card_13.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:340}, 300);
+					createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300);
 				}else{
 					//Tween complete
 					card_13.image.src = 'imagePath-assets/card_03.png';
-					createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:340}, 300);
+					createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_13_status[3];
+				}else{
+					card_pre = card_13_status[3];
+				}
+						
+			card_result(13);
 			}	
 		
 		function handleComplete_card_14() {
@@ -405,12 +499,20 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_14_status[0]){
 					//Tween complete
 					card_14.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:510}, 300);
+					createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300);
 				}else{
 					//Tween complete
 					card_14.image.src = 'imagePath-assets/card_04.png';
-					createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:510}, 300);
+					createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300);
 				}
+			//カード集計へ
+			if(card_pre){
+					card_next = card_14_status[3];
+				}else{
+					card_pre = card_14_status[3];
+				}
+						
+			card_result(14);
 			}	
 		
 		function handleComplete_card_15() {
@@ -418,12 +520,20 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_15_status[0]){
 					//Tween complete
 					card_15.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:680}, 300);
+					createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300);
 				}else{
 					//Tween complete
 					card_15.image.src = 'imagePath-assets/card_05.png';
-					createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:680}, 300);
+					createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300);
 				}
+			//カード集計へ
+			if(card_pre){
+					card_next = card_15_status[3];
+				}else{
+					card_pre = card_15_status[3];
+				}
+						
+			card_result(15);
 			}	
 		
 		function handleComplete_card_16() {
@@ -431,12 +541,21 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			if(!card_16_status[0]){
 					//Tween complete
 					card_16.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:850}, 300);
+					createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300);
 				}else{
 					//Tween complete
 					card_16.image.src = 'imagePath-assets/card_06.png';
-					createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:850}, 300);
+					createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300);
 				}
+				
+			//カード集計へ
+			if(card_pre){
+					card_next = card_16_status[3];
+				}else{
+					card_pre = card_16_status[3];
+				}
+						
+			card_result(11);
 			}	
 		
 			
@@ -445,11 +564,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_11_status[0]){
 				 card_11.image.src = 'imagePath-assets/card_01.png';
-				 createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:85}, 300).call(handleComplete_card_11);
+				 createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:card_x[6]+75}, 300).call(handleComplete_card_11);
 				 card_11_status[0] = false;
 				}else{
 				 card_11.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:85}, 300).call(handleComplete_card_11);
+				 createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:card_x[6]+75}, 300).call(handleComplete_card_11);
 				 card_11_status[0] = true;
 				}
 		});
@@ -458,11 +577,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_12_status[0]){
 				 card_12.image.src = 'imagePath-assets/card_02.png';
-				 createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:245}, 300).call(handleComplete_card_12);
+				 createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:card_x[7]+75}, 300).call(handleComplete_card_12);
 				 card_12_status[0] = false;
 				}else{
 				 card_12.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:245}, 300).call(handleComplete_card_12);
+				 createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:card_x[7]+75}, 300).call(handleComplete_card_12);
 				 card_12_status[0] = true;
 				}
 		});
@@ -472,11 +591,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_13_status[0]){
 				 card_13.image.src = 'imagePath-assets/card_03.png';
-				 createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:415}, 300).call(handleComplete_card_13);
+				 createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:card_x[8]+75}, 300).call(handleComplete_card_13);
 				 card_13_status[0] = false;
 				}else{
 				 card_13.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:415}, 300).call(handleComplete_card_13);
+				 createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:card_x[8]+75}, 300).call(handleComplete_card_13);
 				 card_13_status[0] = true;
 				}
 		});
@@ -486,11 +605,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_14_status[0]){
 				 card_14.image.src = 'imagePath-assets/card_04.png';
-				 createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:585}, 300).call(handleComplete_card_14);
+				 createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:card_x[9]+75}, 300).call(handleComplete_card_14);
 				 card_14_status[0] = false;
 				}else{
 				 card_14.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:585}, 300).call(handleComplete_card_14);
+				 createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:card_x[9]+75}, 300).call(handleComplete_card_14);
 				 card_14_status[0] = true;
 				}
 		});
@@ -500,11 +619,11 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_15_status[0]){
 				 card_15.image.src = 'imagePath-assets/card_05.png';
-				 createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:755}, 300).call(handleComplete_card_15);
+				 createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:card_x[10]+75}, 300).call(handleComplete_card_15);
 				 card_15_status[0] = false;
 				}else{
 				 card_15.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:755}, 300).call(handleComplete_card_15);
+				 createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:card_x[10]+75}, 300).call(handleComplete_card_15);
 				 card_15_status[0] = true;
 				}
 		});
@@ -514,14 +633,86 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			
 			if(card_16_status[0]){
 				 card_16.image.src = 'imagePath-assets/card_06.png';
-				 createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:925}, 300).call(handleComplete_card_16);
+				 createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:card_x[11]+75}, 300).call(handleComplete_card_16);
 				 card_16_status[0] = false;
 				}else{
 				 card_16.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:925}, 300).call(handleComplete_card_16);
+				 createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:card_x[11]+75}, 300).call(handleComplete_card_16);
 				 card_16_status[0] = true;
 				}
 		});
+		
+		
+		
+		function card_result(num){
+			game_step++;
+			console.log(game_step);
+			
+			if(card_pre && card_next){
+				if(card_pre == card_next) {
+					score++;
+					
+					console.log(score);
+		
+					if(game_step == 6){
+						//_thi.gotoPlay(next);
+						console.log("終わり");
+					}
+				}
+						
+			card_reverse(card_pre);
+			card_reverse(card_next);
+				
+			//元に戻す
+			card_pre = false;
+			card_next = false;
+			
+			}
+			
+			
+		}
+		
+		function card_reverse(m){
+			switch (m) {
+				case 1 :
+					handleComplete_card_01();
+					break;
+				case 2 :
+					handleComplete_card_02();
+					break;
+				case 3 :
+					handleComplete_card_03();
+					break;
+				case 4 :
+					handleComplete_card_04();
+					break;
+				case 5 :
+					handleComplete_card_05();
+					break;
+				
+				case 6 :
+					handleComplete_card_06();
+					break;
+				case 11 :
+					handleComplete_card_11();
+					break;
+				case 12 :
+					handleComplete_card_12();
+					break;
+				case 13 :
+					handleComplete_card_13();
+					break;
+				case 14 :
+					handleComplete_card_14();
+					break;
+				case 15 :
+					handleComplete_card_15();
+					break;
+				case 16 :
+					handleComplete_card_16();
+					break;
+			}
+		}
 	}
 
 	// actions tween:
@@ -529,14 +720,14 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	// レイヤー_1
 	this.bug = new lib.bug();
-	this.bug.setTransform(90.55,74.6);
+	this.bug.setTransform(108.55,74.6);
 
 	this.timeline.addTween(cjs.Tween.get(this.bug).wait(1));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(546.1,280.1,-411,-161.00000000000003);
+p.nominalBounds = new cjs.Rectangle(564.1,280.1,-411,-161.00000000000003);
 // library properties:
 lib.properties = {
 	id: 'C49CF37110FA4EC681F38EF5BE599AC7',
@@ -546,7 +737,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/sample_atlas_.png?1573448427157", id:"sample_atlas_"}
+		{src:"images/sample_atlas_.png?1573543196509", id:"sample_atlas_"}
 	],
 	preloads: []
 };
