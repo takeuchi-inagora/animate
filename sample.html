@@ -14,7 +14,7 @@
 <title>sample</title>
 <!-- write your code here -->
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="sample_writer.js?1573543196513"></script>
+<script src="sample.js?1573785573137"></script>
 <script>
 // Global Scripts
 	//属性
@@ -28,9 +28,18 @@
  var card_11,card_12,card_13,card_14,card_15,card_16;
  var card_11_status,card_12_status,card_13_status,card_14_status,card_15_status,card_16_status;
 // 引いたカードの格納
- var card_pre,card_next;
+var card_pre,card_next;
 //ゲーム進行　gameStatusはカード捲れるかめくれないか。集計するかしないか。
- var game_status,game_step,score;</script>
+// 00：スタート,01：1枚目めくる,02：2枚目めくる,03：再チャレンジ,
+var game_status = '00';
+var game_step,score;
+//１回目のカードの番号
+var card_pre_num = 0; 
+//２回目のカードの番号
+var card_next_num = 0; 
+//カードのめくれる有無 [1]~[6] [11]~[16]
+var card_reverse_flag = new Array();
+	card_reverse_flag = [0,true,true,true,true,true,true,0,0,0,0,true,true,true,true,true,true];</script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {

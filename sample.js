@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"sample_atlas_", frames: [[0,0,178,178]]}
+		{name:"sample_atlas_", frames: [[0,702,178,178],[420,702,224,70],[180,702,238,70],[0,0,2000,700]]}
 ];
 
 
@@ -14,6 +14,27 @@ lib.ssMetadata = [
 (lib.CachedBmp_1 = function() {
 	this.initialize(ss["sample_atlas_"]);
 	this.gotoAndStop(0);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.CachedBmp_4 = function() {
+	this.initialize(ss["sample_atlas_"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.CachedBmp_3 = function() {
+	this.initialize(ss["sample_atlas_"]);
+	this.gotoAndStop(2);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.CachedBmp_2 = function() {
+	this.initialize(ss["sample_atlas_"]);
+	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
@@ -62,672 +83,1013 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 			this.isSingleFrame = true;
 		}
 		var _this = this;
-		
-		stage.enableMouseOver(30);
-		
-		/*stage.on( 'stagemousemove' , function (e){
-			var radians = Math.atan2(e.localY - _this.bug.y , e.localX - _this.bug.x);
-			var degrees = radians * (180 / Math.PI);
-			_this.bug.rotation = degrees - 90;
-			_this.bug.y = e.localY;
-			_this.bug.x = e.localX;
-			_this.bug.d
 				
-			var shape = new createjs.Shape();
-			shape.graphics.beginFill("#ff0000").drawCircle(0, 0, 25);
-			shape.cache(-25, -25, 50, 50);
-			
-			});*/
-		
-		//https://www.createjs.com/docs/easeljs/classes/Stage.html#method_tick
-		//var stage = new createjs.Stage("canvasElementId");
-		
-		
-		//画像読み込み
-		 card_01 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_02 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_03 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_04 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_05 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_06 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		
-		 card_11 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_12 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_13 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_14 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_15 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		 card_16 = new createjs.Bitmap("imagePath-assets/card_ura.png");
-		
-		 stage.addChild(card_01);
-		 stage.addChild(card_02);
-		 stage.addChild(card_03);
-		 stage.addChild(card_04);
-		 stage.addChild(card_05);
-		 stage.addChild(card_06);
-		 
-		 stage.addChild(card_11);
-		 stage.addChild(card_12);
-		 stage.addChild(card_13);
-		 stage.addChild(card_14);
-		 stage.addChild(card_15);
-		 stage.addChild(card_16);
-		 
-		 //x座標
-		 var card_x = [10,170,340,510,680,850,10,170,340,510,680,850];
-		 //y座標
-		 var card_y = [10,10,10,10,10,10,170,170,170,170,170,170];
-		
-		for (var i = 0 ; i < 12 ; i++) {
-			var num = Math.floor(Math.random()*12);
-			//入れ替える数字を保存
-			//x座標
-			var card_num_x = card_x[i];
-			//y座標
-			var card_num_y = card_y[i];
-		
-			//xとyの座標を入れ替える
-			card_x[i] = card_x[num];
-			card_x[num] = card_num_x;
-		
-			card_y[i] = card_y[num];
-			card_y[num] = card_num_y;
-			}
-		
-		console.log("card_x ----> " + card_x);
-		console.log("card_y ----> " + card_y);
-		
-		 //x座標
-		 card_01.x = card_x[0];
-		 card_02.x = card_x[1];
-		 card_03.x = card_x[2];
-		 card_04.x = card_x[3];
-		 card_05.x = card_x[4];
-		 card_06.x = card_x[5];
-		
-		 card_11.x = card_x[6];
-		 card_12.x = card_x[7];
-		 card_13.x = card_x[8];
-		 card_14.x = card_x[9];
-		 card_15.x = card_x[10];
-		 card_16.x = card_x[11];
-		
-		//y座標
-		 card_01.y = card_y[0];
-		 card_02.y = card_y[1];
-		 card_03.y = card_y[2];
-		 card_04.y = card_y[3];
-		 card_05.y = card_y[4];
-		 card_06.y = card_y[5];
-		
-		 card_11.y = card_y[6];
-		 card_12.y = card_y[7];
-		 card_13.y = card_y[8];
-		 card_14.y = card_y[9];
-		 card_15.y = card_y[10];
-		 card_16.y = card_y[11];
-		
-		card_01_status = [false,0,status,1];
-		card_02_status = [false,0,status,2];
-		card_03_status = [false,0,status,3];
-		card_04_status = [false,0,status,4];
-		card_05_status = [false,0,status,5];
-		card_06_status = [false,0,status,6];
-		card_11_status = [false,0,status,1];
-		card_12_status = [false,0,status,2];
-		card_13_status = [false,0,status,3];
-		card_14_status = [false,0,status,4];
-		card_15_status = [false,0,status,5];
-		card_16_status = [false,0,status,6];
-		
-		// createjs.Ticker.addEventListener("tick", handleTick);
-		// function handleTick(e) {
-		     //image.x += 10;
-		     //stage.update();
-		 	 //console.log("tick");
-		//}
-		 
-		/*
-		ステージに配置したムービークリップの時のイベント処理
-		
-		イベント付与
-		_this.bug.instance.addEventListener("click", function(e) {
-		     console.log(_this.bug == this); // false, scope is ambiguous.
-		 });
-		 
-		 トリガー
-		_this.bug.instance.on("click", function(e) {
-		 	 console.log("_this.bug click");
-		});
-		
-		*/
-		function handleComplete_card_01() {
-			
-			if(!card_01_status[0]){
-					//Tween complete
-					card_01.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300);
-				}else{
-					//Tween complete
-					card_01.image.src = 'imagePath-assets/card_01.png';
-					createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300);
-				}
+				stage.enableMouseOver(30);
 				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_01_status[3];
-				}else{
-					card_pre = card_01_status[3];
-				}
+				/*stage.on( 'stagemousemove' , function (e){
+					var radians = Math.atan2(e.localY - _this.bug.y , e.localX - _this.bug.x);
+					var degrees = radians * (180 / Math.PI);
+					_this.bug.rotation = degrees - 90;
+					_this.bug.y = e.localY;
+					_this.bug.x = e.localX;
+					_this.bug.d
 						
-			card_result(1);
-			}	
-		function handleComplete_card_02() {
-			
-			if(!card_02_status[0]){
-					//Tween complete
-					card_02.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300);
-				}else{
-					//Tween complete
-					card_02.image.src = 'imagePath-assets/card_02.png';
-					createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_02_status[3];
-				}else{
-					card_pre = card_02_status[3];
-				}
-						
-			card_result(2);
-			}	
-		
-		function handleComplete_card_03() {
-			
-			if(!card_03_status[0]){
-					//Tween complete
-					card_03.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300);
-				}else{
-					//Tween complete
-					card_03.image.src = 'imagePath-assets/card_03.png';
-					createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_03_status[3];
-				}else{
-					card_pre = card_03_status[3];
-				}
-						
-			card_result(3);
-			}	
-		
-		function handleComplete_card_04() {
-			
-			if(!card_04_status[0]){
-					//Tween complete
-					card_04.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300);
-				}else{
-					//Tween complete
-					card_04.image.src = 'imagePath-assets/card_04.png';
-					createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_04_status[3];
-				}else{
-					card_pre = card_04_status[3];
-				}
-						
-			card_result(4);
-			}	
-		
-		function handleComplete_card_05() {
-			
-			if(!card_05_status[0]){
-					//Tween complete
-					card_05.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300);
-				}else{
-					//Tween complete
-					card_05.image.src = 'imagePath-assets/card_05.png';
-					createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_05_status[3];
-				}else{
-					card_pre = card_05_status[3];
-				}
-						
-			card_result(5);
-				
-			}	
-		
-		function handleComplete_card_06() {
-			
-			if(!card_06_status[0]){
-					//Tween complete
-					card_06.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300);
-				}else{
-					//Tween complete
-					card_06.image.src = 'imagePath-assets/card_06.png';
-					createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_06_status[3];
-				}else{
-					card_pre = card_06_status[3];
-				}
-						
-			card_result(6);
-				
-			}	
-		
-		card_01.on("click", function(e) {
-			 card_01.width = 150;
-			 console.log( card_01.scaleX );
-			 console.log(card_01.width);
-			 console.log(card_01[0]);
-			 console.log("--------------------------");
-			
-			if(card_01_status[0]){
-				 //card_01.image.src = 'imagePath-assets/card_01.png';
-				 console.log("card_01 click");
-				 console.log(card_01[0]);
-				 createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:card_x[0]+75}, 300).call(handleComplete_card_01);
-				 card_01_status[0] = false;
-				}else{
-				 //card_01.image.src = 'imagePath-assets/card_ura.png';
-				 console.log("card_01 click");
-				 createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:card_x[0]+75}, 300).call(handleComplete_card_01);
-				 card_01_status[0] = true;
-				}
-			
-			});
-		
-		card_02.on("click", function(e) {
-			 card_02.width = 150;
-			
-			if(card_02_status[0]){
-				 card_02.image.src = 'imagePath-assets/card_02.png';
-				 createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:card_x[1]+75}, 300).call(handleComplete_card_02);
-				 card_02_status[0] = false;
-				}else{
-				 card_02.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:card_x[1]+75}, 300).call(handleComplete_card_02);
-				 card_02_status[0] = true;
-				}
-			
-			});
-		
-		card_03.on("click", function(e) {
-			 card_03.width = 150;
-			
-			if(card_03_status[0]){
-				 card_03.image.src = 'imagePath-assets/card_03.png';
-				 createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:card_x[2]+75}, 300).call(handleComplete_card_03);
-				 card_03_status[0] = false;
-				}else{
-				 card_03.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:card_x[2]+75}, 300).call(handleComplete_card_03);
-				 card_03_status[0] = true;
-				}
-			
-		});
-		
-		card_04.on("click", function(e) {
-			 card_04.width = 150;
-			
-			if(card_04_status[0]){
-				 card_04.image.src = 'imagePath-assets/card_04.png';
-				 createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:card_x[3]+75}, 300).call(handleComplete_card_04);
-				 card_04_status[0] = false;
-				}else{
-				 card_04.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:card_x[3]+75}, 300).call(handleComplete_card_04);
-				 card_04_status[0] = true;
-				}
-			
-		});
-		
-		card_05.on("click", function(e) {
-			 card_05.width = 150;
-			
-			if(card_05_status[0]){
-				 card_05.image.src = 'imagePath-assets/card_05.png';
-				 createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:card_x[4]+75}, 300).call(handleComplete_card_05);
-				 card_05_status[0] = false;
-				}else{
-				 card_05.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:card_x[4]+75}, 300).call(handleComplete_card_05);
-				 card_05_status[0] = true;
-				}
-		});
-		
-		card_06.on("click", function(e) {
-			 card_06.width = 150;
-			
-			if(card_06_status[0]){
-				 card_06.image.src = 'imagePath-assets/card_06.png';
-				 createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:card_x[5]+75}, 300).call(handleComplete_card_06);
-				 card_06_status[0] = false;
-				}else{
-				 card_06.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:card_x[5]+75}, 300).call(handleComplete_card_06);
-				 card_06_status[0] = true;
-				}
-		});
-		
-		function handleComplete_card_11() {
-			
-			if(!card_11_status[0]){
-					//Tween complete
-					card_11.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300);
-				}else{
-					//Tween complete
-					card_11.image.src = 'imagePath-assets/card_01.png';
-					createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_11_status[3];
-				}else{
-					card_pre = card_11_status[3];
-				}
-						
-			card_result(11);
-			}	
-			
-		function handleComplete_card_12() {
-			
-			if(!card_12_status[0]){
-					//Tween complete
-					card_12.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300);
-				}else{
-					//Tween complete
-					card_12.image.src = 'imagePath-assets/card_02.png';
-					createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_12_status[3];
-				}else{
-					card_pre = card_12_status[3];
-				}
-						
-			card_result(12);
-			}	
-		
-		function handleComplete_card_13() {
-			
-			if(!card_13_status[0]){
-					//Tween complete
-					card_13.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300);
-				}else{
-					//Tween complete
-					card_13.image.src = 'imagePath-assets/card_03.png';
-					createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_13_status[3];
-				}else{
-					card_pre = card_13_status[3];
-				}
-						
-			card_result(13);
-			}	
-		
-		function handleComplete_card_14() {
-			
-			if(!card_14_status[0]){
-					//Tween complete
-					card_14.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300);
-				}else{
-					//Tween complete
-					card_14.image.src = 'imagePath-assets/card_04.png';
-					createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300);
-				}
-			//カード集計へ
-			if(card_pre){
-					card_next = card_14_status[3];
-				}else{
-					card_pre = card_14_status[3];
-				}
-						
-			card_result(14);
-			}	
-		
-		function handleComplete_card_15() {
-			
-			if(!card_15_status[0]){
-					//Tween complete
-					card_15.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300);
-				}else{
-					//Tween complete
-					card_15.image.src = 'imagePath-assets/card_05.png';
-					createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300);
-				}
-			//カード集計へ
-			if(card_pre){
-					card_next = card_15_status[3];
-				}else{
-					card_pre = card_15_status[3];
-				}
-						
-			card_result(15);
-			}	
-		
-		function handleComplete_card_16() {
-			
-			if(!card_16_status[0]){
-					//Tween complete
-					card_16.image.src = 'imagePath-assets/card_ura.png';
-					createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300);
-				}else{
-					//Tween complete
-					card_16.image.src = 'imagePath-assets/card_06.png';
-					createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300);
-				}
-				
-			//カード集計へ
-			if(card_pre){
-					card_next = card_16_status[3];
-				}else{
-					card_pre = card_16_status[3];
-				}
-						
-			card_result(11);
-			}	
-		
-			
-		card_11.on("click", function(e) {
-			 card_11.width = 150;
-			
-			if(card_11_status[0]){
-				 card_11.image.src = 'imagePath-assets/card_01.png';
-				 createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:card_x[6]+75}, 300).call(handleComplete_card_11);
-				 card_11_status[0] = false;
-				}else{
-				 card_11.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:card_x[6]+75}, 300).call(handleComplete_card_11);
-				 card_11_status[0] = true;
-				}
-		});
-		card_12.on("click", function(e) {
-			 card_12.width = 150;
-			
-			if(card_12_status[0]){
-				 card_12.image.src = 'imagePath-assets/card_02.png';
-				 createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:card_x[7]+75}, 300).call(handleComplete_card_12);
-				 card_12_status[0] = false;
-				}else{
-				 card_12.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:card_x[7]+75}, 300).call(handleComplete_card_12);
-				 card_12_status[0] = true;
-				}
-		});
-		
-		card_13.on("click", function(e) {
-			 card_13.width = 150;
-			
-			if(card_13_status[0]){
-				 card_13.image.src = 'imagePath-assets/card_03.png';
-				 createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:card_x[8]+75}, 300).call(handleComplete_card_13);
-				 card_13_status[0] = false;
-				}else{
-				 card_13.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:card_x[8]+75}, 300).call(handleComplete_card_13);
-				 card_13_status[0] = true;
-				}
-		});
-		
-		card_14.on("click", function(e) {
-			 card_14.width = 150;
-			
-			if(card_14_status[0]){
-				 card_14.image.src = 'imagePath-assets/card_04.png';
-				 createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:card_x[9]+75}, 300).call(handleComplete_card_14);
-				 card_14_status[0] = false;
-				}else{
-				 card_14.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:card_x[9]+75}, 300).call(handleComplete_card_14);
-				 card_14_status[0] = true;
-				}
-		});
-		
-		card_15.on("click", function(e) {
-			 card_15.width = 150;
-			
-			if(card_15_status[0]){
-				 card_15.image.src = 'imagePath-assets/card_05.png';
-				 createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:card_x[10]+75}, 300).call(handleComplete_card_15);
-				 card_15_status[0] = false;
-				}else{
-				 card_15.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:card_x[10]+75}, 300).call(handleComplete_card_15);
-				 card_15_status[0] = true;
-				}
-		});
-		
-		card_16.on("click", function(e) {
-			 card_16.width = 150;
-			
-			if(card_16_status[0]){
-				 card_16.image.src = 'imagePath-assets/card_06.png';
-				 createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:card_x[11]+75}, 300).call(handleComplete_card_16);
-				 card_16_status[0] = false;
-				}else{
-				 card_16.image.src = 'imagePath-assets/card_ura.png';
-				 createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:card_x[11]+75}, 300).call(handleComplete_card_16);
-				 card_16_status[0] = true;
-				}
-		});
-		
-		
-		
-		function card_result(num){
-			game_step++;
-			console.log(game_step);
-			
-			if(card_pre && card_next){
-				if(card_pre == card_next) {
-					score++;
+					var shape = new createjs.Shape();
+					shape.graphics.beginFill("#ff0000").drawCircle(0, 0, 25);
+					shape.cache(-25, -25, 50, 50);
 					
-					console.log(score);
+					});*/
+				
+				//https://www.createjs.com/docs/easeljs/classes/Stage.html#method_tick
+				//var stage = new createjs.Stage("canvasElementId");
+				
+				/*スタート 初期設定*/
+				game_status = "00";
+				game_step = 1;
+				score = 0;
+				
+				_this.score.text = score;
+				_this.game_step.text = game_step;
+				
+				//画像読み込み
+				 card_01 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_02 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_03 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_04 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_05 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_06 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				
+				 card_11 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_12 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_13 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_14 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_15 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				 card_16 = new createjs.Bitmap("imagePath-assets/card_ura.png");
+				
+				 stage.addChild(card_01);
+				 stage.addChild(card_02);
+				 stage.addChild(card_03);
+				 stage.addChild(card_04);
+				 stage.addChild(card_05);
+				 stage.addChild(card_06);
+				 
+				 stage.addChild(card_11);
+				 stage.addChild(card_12);
+				 stage.addChild(card_13);
+				 stage.addChild(card_14);
+				 stage.addChild(card_15);
+				 stage.addChild(card_16);
+				 
+				 //x座標
+				 var card_x = [10,170,340,510,680,850,10,170,340,510,680,850];
+				 //y座標
+				 var card_y = [10,10,10,10,10,10,170,170,170,170,170,170];
+				
+				for (var i = 0 ; i < 12 ; i++) {
+					var num = Math.floor(Math.random()*12);
+					//入れ替える数字を保存
+					//x座標
+					var card_num_x = card_x[i];
+					//y座標
+					var card_num_y = card_y[i];
+				
+					//xとyの座標を入れ替える
+					card_x[i] = card_x[num];
+					card_x[num] = card_num_x;
+				
+					card_y[i] = card_y[num];
+					card_y[num] = card_num_y;
+					}
+				
+				console.log("card_x ----> " + card_x);
+				console.log("card_y ----> " + card_y);
+				
+				 //x座標
+				 card_01.x = card_x[0];
+				 card_02.x = card_x[1];
+				 card_03.x = card_x[2];
+				 card_04.x = card_x[3];
+				 card_05.x = card_x[4];
+				 card_06.x = card_x[5];
+				
+				 card_11.x = card_x[6];
+				 card_12.x = card_x[7];
+				 card_13.x = card_x[8];
+				 card_14.x = card_x[9];
+				 card_15.x = card_x[10];
+				 card_16.x = card_x[11];
+				
+				//y座標
+				 card_01.y = card_y[0];
+				 card_02.y = card_y[1];
+				 card_03.y = card_y[2];
+				 card_04.y = card_y[3];
+				 card_05.y = card_y[4];
+				 card_06.y = card_y[5];
+				
+				 card_11.y = card_y[6];
+				 card_12.y = card_y[7];
+				 card_13.y = card_y[8];
+				 card_14.y = card_y[9];
+				 card_15.y = card_y[10];
+				 card_16.y = card_y[11];
+				
+				 // [表裏、、カードめくれる有無、カードの種類、カードの番号]
+				card_01_status = [false,0,true,1,1];
+				card_02_status = [false,0,true,2,2];
+				card_03_status = [false,0,true,3,3];
+				card_04_status = [false,0,true,4,4];
+				card_05_status = [false,0,true,5,5];
+				card_06_status = [false,0,true,6,6];
 		
-					if(game_step == 6){
-						//_thi.gotoPlay(next);
-						console.log("終わり");
+				card_11_status = [false,0,true,1,11];
+				card_12_status = [false,0,true,2,12];
+				card_13_status = [false,0,true,3,13];
+				card_14_status = [false,0,true,4,14];
+				card_15_status = [false,0,true,5,15];
+				card_16_status = [false,0,true,6,16];
+				
+				// createjs.Ticker.addEventListener("tick", handleTick);
+				// function handleTick(e) {
+				     //image.x += 10;
+				     //stage.update();
+				 	 //console.log("tick");
+				//}
+				 
+				/*
+				ステージに配置したムービークリップの時のイベント処理
+				
+				イベント付与
+				_this.bug.instance.addEventListener("click", function(e) {
+				     console.log(_this.bug == this); // false, scope is ambiguous.
+				 });
+				 
+				 トリガー
+				_this.bug.instance.on("click", function(e) {
+				 	 console.log("_this.bug click");
+				});
+				
+				*/
+		
+			/*セット完了*/
+			game_status = "01";
+		
+		
+				card_01.on("click", function(e) {
+					if(card_reverse_flag[1]){
+						 card_01.width = 150;
+						
+						if(card_01_status[0]){
+							 card_01.image.src = 'imagePath-assets/card_01.png';
+							 card_01_status[0] = false;
+							}else{
+							 card_01.image.src = 'imagePath-assets/card_ura.png';
+							 card_01_status[0] = true;
+							}
+		
+						createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:card_x[0]+75}, 300).call(handleComplete_card_01);
+						}
+						
+					});
+				function handleComplete_card_01() {
+					console.log("handleComplete_card_01");
+					
+					if(!card_01_status[0]){
+							//Tween complete
+							card_01.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_01.image.src = 'imagePath-assets/card_01.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							//1枚目
+							console.log("1枚目");
+							createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300);
+							card_pre_num = card_01_status[4];
+							card_pre = card_01_status[3];
+							// 01 と 03 から 02 に変更
+							game_status = '02';
+						}else if(game_status == '03'){
+							//裏に戻すのみ
+							console.log("裏にもどす");
+							createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300);
+							game_status = '02';
+						}else{
+							//2枚目以降
+							console.log("2枚目");
+							console.log(card_01_status[0]);
+							card_next_num = card_01_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								console.log("1枚目に戻る");
+								card_01_status[0] = false;
+								createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_01, {override:true}).to({scaleX:1, x:card_x[0]}, 300).call(card_result,[1]);
+								card_next = card_01_status[3];
+							}
+							console.log("game_status ---> " + game_status);
+		
+						}
+					}
+		
+				card_02.on("click", function(e) {
+					if(card_reverse_flag[2]){
+						 card_02.width = 150;
+						
+						if(card_02_status[0]){
+							 card_02.image.src = 'imagePath-assets/card_02.png';
+							 card_02_status[0] = false;
+							}else{
+							 card_02.image.src = 'imagePath-assets/card_ura.png';
+							 card_02_status[0] = true;
+							}
+		
+						createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:card_x[1]+75}, 300).call(handleComplete_card_02);
+						}
+					});
+				
+				function handleComplete_card_02() {
+					console.log("handleComplete_card_02");
+					
+					if(!card_02_status[0]){
+							//Tween complete
+							card_02.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_02.image.src = 'imagePath-assets/card_02.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300);
+							card_pre_num = card_02_status[4];
+							card_pre = card_02_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_02_status[0]);
+						card_next_num = card_02_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_02_status[0] = false;
+								createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_02, {override:true}).to({scaleX:1, x:card_x[1]}, 300).call(card_result,[2]);
+								card_next = card_02_status[3];
+							}
+						}
+					}	
+		
+				card_03.on("click", function(e) {
+					if(card_reverse_flag[3]){
+						 card_03.width = 150;
+						
+						if(card_03_status[0]){
+							 card_03.image.src = 'imagePath-assets/card_03.png';
+							 card_03_status[0] = false;
+							}else{
+							 card_03.image.src = 'imagePath-assets/card_ura.png';
+							 card_03_status[0] = true;
+							}
+		
+						createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:card_x[2]+75}, 300).call(handleComplete_card_03);
+						}
+					});
+		
+				function handleComplete_card_03() {
+					console.log("handleComplete_card_03");
+					
+					if(!card_03_status[0]){
+							//Tween complete
+							card_03.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_03.image.src = 'imagePath-assets/card_03.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300);
+							card_pre_num = card_03_status[4];
+							card_pre = card_03_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_03_status[0]);
+						card_next_num = card_03_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_03_status[0] = false;
+								createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_03, {override:true}).to({scaleX:1, x:card_x[2]}, 300).call(card_result,[3]);
+								card_next = card_03_status[3];
+							}					
+						}
+					}	
+				
+				card_04.on("click", function(e) {
+					if(card_reverse_flag[4]){
+						 card_04.width = 150;
+						
+						if(card_04_status[0]){
+							 card_04.image.src = 'imagePath-assets/card_04.png';
+							 card_04_status[0] = false;
+							}else{
+							 card_04.image.src = 'imagePath-assets/card_ura.png';
+							 card_04_status[0] = true;
+							}
+		
+						createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:card_x[3]+75}, 300).call(handleComplete_card_04);
+						}
+					});
+		
+				function handleComplete_card_04() {
+					console.log("handleComplete_card_04");
+					if(!card_04_status[0]){
+							//Tween complete
+							card_04.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_04.image.src = 'imagePath-assets/card_04.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300);
+							card_pre_num = card_04_status[4];
+							card_pre = card_04_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_04_status[0]);
+						card_next_num = card_04_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_04_status[0] = false;
+								createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_04, {override:true}).to({scaleX:1, x:card_x[3]}, 300).call(card_result,[4]);
+								card_next = card_04_status[3];
+							}					
+						}
+					}	
+		
+				card_05.on("click", function(e) {
+					if(card_reverse_flag[5]){
+						 card_05.width = 150;
+						
+						if(card_05_status[0]){
+							 card_05.image.src = 'imagePath-assets/card_05.png';
+							 card_05_status[0] = false;
+							}else{
+							 card_05.image.src = 'imagePath-assets/card_ura.png';
+							 card_05_status[0] = true;
+							}
+		
+							createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:card_x[4]+75}, 300).call(handleComplete_card_05);
+						}
+					});
+		
+				function handleComplete_card_05() {
+					console.log("handleComplete_card_05");
+					
+					if(!card_05_status[0]){
+							//Tween complete
+							card_05.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_05.image.src = 'imagePath-assets/card_05.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300);
+							card_pre_num = card_05_status[4];
+							card_pre = card_05_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_05_status[0]);
+						card_next_num = card_05_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_05_status[0] = false;
+								createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_05, {override:true}).to({scaleX:1, x:card_x[4]}, 300).call(card_result,[5]);
+								card_next = card_05_status[3];
+							}					
+						}
+					}	
+				
+				card_06.on("click", function(e) {
+					if(card_reverse_flag[6]){
+						 card_06.width = 150;
+						
+						if(card_06_status[0]){
+							 card_06.image.src = 'imagePath-assets/card_06.png';
+							 card_06_status[0] = false;
+							}else{
+							 card_06.image.src = 'imagePath-assets/card_ura.png';
+							 card_06_status[0] = true;
+							}
+		
+							createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:card_x[5]+75}, 300).call(handleComplete_card_06);
+						}
+					});
+		
+				function handleComplete_card_06() {
+					console.log("handleComplete_card_06");
+					
+					if(!card_06_status[0]){
+							//Tween complete
+							card_06.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_06.image.src = 'imagePath-assets/card_06.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300);
+							card_pre_num = card_06_status[4];
+							card_pre = card_06_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_06_status[0]);
+						card_next_num = card_06_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_06_status[0] = false;
+								createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_06, {override:true}).to({scaleX:1, x:card_x[5]}, 300).call(card_result,[6]);
+								card_next = card_06_status[3];
+							}					
+						}				
+					}	
+		
+				card_11.on("click", function(e) {
+					if(card_reverse_flag[11]){
+						 card_11.width = 150;
+						
+						if(card_11_status[0]){
+							 card_11.image.src = 'imagePath-assets/card_01.png';
+							 card_11_status[0] = false;
+							}else{
+							 card_11.image.src = 'imagePath-assets/card_ura.png';
+							 card_11_status[0] = true;
+							}
+							
+							createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:card_x[6]+75}, 300).call(handleComplete_card_11);
+						}
+					});
+				
+				function handleComplete_card_11() {
+					console.log("handleComplete_card_11");
+					
+					if(!card_11_status[0]){
+							//Tween complete
+							card_11.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_11.image.src = 'imagePath-assets/card_01.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300);
+							card_pre = card_11_status[3];
+							card_pre_num = card_11_status[4];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_11_status[0]);
+						card_next_num = card_11_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_11_status[0] = false;
+								createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_11, {override:true}).to({scaleX:1, x:card_x[6]}, 300).call(card_result,[11]);
+								card_next = card_11_status[3];
+							}					
+						}
+					}	
+				
+				card_12.on("click", function(e) {
+					if(card_reverse_flag[12]){
+						 card_12.width = 150;
+						
+						if(card_12_status[0]){
+							 card_12.image.src = 'imagePath-assets/card_02.png';
+							 card_12_status[0] = false;
+							}else{
+							 card_12.image.src = 'imagePath-assets/card_ura.png';
+							 card_12_status[0] = true;
+							}
+							
+							createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:card_x[7]+75}, 300).call(handleComplete_card_12);
+						}
+					});
+		
+				function handleComplete_card_12() {
+					console.log("handleComplete_card_12");
+					
+					if(!card_12_status[0]){
+							//Tween complete
+							card_12.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_12.image.src = 'imagePath-assets/card_02.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300);
+							card_pre_num = card_12_status[4];
+							card_pre = card_12_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_12_status[0]);
+						card_next_num = card_12_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_12_status[0] = false;
+								createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_12, {override:true}).to({scaleX:1, x:card_x[7]}, 300).call(card_result,[12]);
+								card_next = card_12_status[3];
+							}					
+						}
+					}	
+				
+				card_13.on("click", function(e) {
+					if(card_reverse_flag[13]){
+						 card_13.width = 150;
+						
+						if(card_13_status[0]){
+							 card_13.image.src = 'imagePath-assets/card_03.png';
+							 card_13_status[0] = false;
+							}else{
+							 card_13.image.src = 'imagePath-assets/card_ura.png';
+							 card_13_status[0] = true;
+							}
+							
+							createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:card_x[8]+75}, 300).call(handleComplete_card_13);
+						}
+					});
+		
+				function handleComplete_card_13() {
+					console.log("handleComplete_card_13");
+					
+					if(!card_13_status[0]){
+							//Tween complete
+							card_13.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_13.image.src = 'imagePath-assets/card_03.png';
+						}
+						
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300);
+							card_pre_num = card_13_status[4];
+							card_pre = card_13_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_13_status[0]);
+						card_next_num = card_13_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_13_status[0] = false;
+								createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_13, {override:true}).to({scaleX:1, x:card_x[8]}, 300).call(card_result,[13]);
+								card_next = card_13_status[3];
+							}					
+						}
+					}	
+		
+				card_14.on("click", function(e) {
+					if(card_reverse_flag[14]){
+						 card_14.width = 150;
+						
+						if(card_14_status[0]){
+							 card_14.image.src = 'imagePath-assets/card_04.png';
+							 card_14_status[0] = false;
+							}else{
+							 card_14.image.src = 'imagePath-assets/card_ura.png';
+							 card_14_status[0] = true;
+							}
+							
+							createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:card_x[9]+75}, 300).call(handleComplete_card_14);
+						}
+					});
+				
+				function handleComplete_card_14() {
+					console.log("handleComplete_card_14");
+					
+					if(!card_14_status[0]){
+							//Tween complete
+							card_14.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_14.image.src = 'imagePath-assets/card_04.png';
+						}
+		
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300);
+							card_pre_num = card_14_status[4];
+							card_pre = card_14_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_14_status[0]);
+						card_next_num = card_14_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_14_status[0] = false;
+								createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_14, {override:true}).to({scaleX:1, x:card_x[9]}, 300).call(card_result,[14]);
+								card_next = card_14_status[3];
+							}					
+						}
+					}	
+				
+				card_15.on("click", function(e) {
+					if(card_reverse_flag[15]){
+						 card_15.width = 150;
+						
+						if(card_15_status[0]){
+							 card_15.image.src = 'imagePath-assets/card_05.png';
+							 card_15_status[0] = false;
+							}else{
+							 card_15.image.src = 'imagePath-assets/card_ura.png';
+							 card_15_status[0] = true;
+							}
+							
+							createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:card_x[10]+75}, 300).call(handleComplete_card_15);
+						}
+					});
+		
+				function handleComplete_card_15() {
+					console.log("handleComplete_card_15");
+					
+					if(!card_15_status[0]){
+							//Tween complete
+							card_15.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_15.image.src = 'imagePath-assets/card_05.png';
+						}
+		
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300);
+							card_pre_num = card_15_status[4];
+							card_pre = card_15_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_15_status[0]);
+						card_next_num = card_15_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_15_status[0] = false;
+								createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_15, {override:true}).to({scaleX:1, x:card_x[10]}, 300).call(card_result,[15]);
+								card_next = card_15_status[3];
+							}					
+						}
+					}	
+		
+				card_16.on("click", function(e) {
+					if(card_reverse_flag[16]){
+						 card_16.width = 150;
+						
+						if(card_16_status[0]){
+							 card_16.image.src = 'imagePath-assets/card_06.png';
+							 card_16_status[0] = false;
+							}else{
+							 card_16.image.src = 'imagePath-assets/card_ura.png';
+							 card_16_status[0] = true;
+							}
+							
+							createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:card_x[11]+75}, 300).call(handleComplete_card_16);
+						}
+					});
+		
+				function handleComplete_card_16() {
+					console.log("handleComplete_card_16");
+					
+					if(!card_16_status[0]){
+							//Tween complete
+							card_16.image.src = 'imagePath-assets/card_ura.png';
+						}else{
+							//Tween complete
+							card_16.image.src = 'imagePath-assets/card_06.png';
+						}
+			
+					//カード集計へ
+					if(game_status == '01'){
+							createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300);
+							card_pre_num = card_16_status[4];
+							card_pre = card_16_status[3];
+							game_status = '02';
+						}else if(game_status == '03'){
+							createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300);
+							game_status = '02';
+						}else{
+						//2枚目以降
+						console.log("2枚目");
+						console.log(card_16_status[0]);
+						card_next_num = card_16_status[4];
+		
+						//同じカードならばgame_statusを戻す。card_statusm初期値へ。
+						if(card_pre_num == card_next_num){
+								card_16_status[0] = false;
+								createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300);
+								card_next_num = 0;
+								card_pre_num = 0;
+								card_pre = 0;
+								game_status = '01';
+							}else{
+								createjs.Tween.get(card_16, {override:true}).to({scaleX:1, x:card_x[11]}, 300).call(card_result,[16]);
+								card_next = card_16_status[3];
+							}					
+						}
+					}	
+		
+				function card_result(num){
+					console.log("card_result");
+					
+					if(game_status == '02'){
+						game_step = game_step + 1;
+						console.log(game_step);
+						
+						_this.game_step.text = game_step;
+		
+						if(card_pre == card_next) {
+							score = score + 1;
+							
+							console.log("card_pre--> " + card_pre);
+							console.log("card_next--> " + card_next);
+							console.log(score);
+							
+							_this.score.text = score;
+				
+								if(score == 6){
+									//_thi.gotoPlay(next);
+									console.log("finish");
+									game_status = '04';
+								} else {
+									card_reverse_flag[card_pre_num] = false;
+									card_reverse_flag[card_next_num] = false;
+		
+									//元に戻す
+									card_pre = 0;
+									card_next = 0;
+									game_status = '01';
+		
+									console.log("揃った");
+									console.log(card_reverse_flag);
+								}
+		
+								console.log("game_status ----> " + game_status);
+		
+							} else {
+		
+								game_status = '03';
+								console.log("game_status ----> " + game_status);
+								console.log("card_reverse：card_next ----> " + card_next);
+								card_reverse(card_next_num);
+							}
+						}
+		
+					/*外れた時元に戻す*/
+					function card_reverse(m){
+						var card_num = m;
+						console.log("card_pre ----> " + card_pre);
+						console.log("card_next ----> " + card_next);
+						console.log("card_next_num ----> " + card_num);
+		
+						//card_num = 1;
+		
+						switch( card_num ){
+							case 1 :
+								card_01_status[0] = false;
+								createjs.Tween.get(card_01, {override:true}).to({scaleX:0.1, x:card_x[0]+75}, 300).call(handleComplete_card_01);
+								console.log("case 1：" + card_pre);
+								break;
+							case 2 :
+								card_02_status[0] = false;
+								createjs.Tween.get(card_02, {override:true}).to({scaleX:0.1, x:card_x[1]+75}, 300).call(handleComplete_card_02);
+								console.log("case 2：" + card_pre);
+								break;
+							case 3 :
+								card_03_status[0] = false;
+								createjs.Tween.get(card_03, {override:true}).to({scaleX:0.1, x:card_x[2]+75}, 300).call(handleComplete_card_03);
+								console.log("case 3：" + card_pre);
+								break;
+							case 4 :
+								card_04_status[0] = false;
+								createjs.Tween.get(card_04, {override:true}).to({scaleX:0.1, x:card_x[3]+75}, 300).call(handleComplete_card_04);
+								console.log("case 4：" + card_pre);
+								break;
+							case 5 :
+								card_05_status[0] = false;
+								createjs.Tween.get(card_05, {override:true}).to({scaleX:0.1, x:card_x[4]+75}, 300).call(handleComplete_card_05);
+								console.log("case 5：" + card_pre);
+								break;
+							case 6 :
+								card_06_status[0] = false;
+								createjs.Tween.get(card_06, {override:true}).to({scaleX:0.1, x:card_x[5]+75}, 300).call(handleComplete_card_06);
+								console.log("case 6：" + card_pre);
+								break;
+		
+							case 11 :
+								card_11_status[0] = false;
+								createjs.Tween.get(card_11, {override:true}).to({scaleX:0.1, x:card_x[6]+75}, 300).call(handleComplete_card_11);
+								console.log("case 11：" + card_pre);
+								break;
+							case 12 :
+								card_12_status[0] = false;
+								createjs.Tween.get(card_12, {override:true}).to({scaleX:0.1, x:card_x[7]+75}, 300).call(handleComplete_card_12);
+								console.log("case 12：" + card_pre);
+								break;
+							case 13 :
+								card_13_status[0] = false;
+								createjs.Tween.get(card_13, {override:true}).to({scaleX:0.1, x:card_x[8]+75}, 300).call(handleComplete_card_13);
+								console.log("case 13：" + card_pre);
+								break;
+							case 14 :
+								card_14_status[0] = false;
+								createjs.Tween.get(card_14, {override:true}).to({scaleX:0.1, x:card_x[9]+75}, 300).call(handleComplete_card_14);
+								console.log("case 14：" + card_pre);
+								break;
+							case 15 :
+								card_15_status[0] = false;
+								createjs.Tween.get(card_15, {override:true}).to({scaleX:0.1, x:card_x[10]+75}, 300).call(handleComplete_card_15);
+								console.log("case 15：" + card_pre);
+								break;
+							case 16 :
+								card_16_status[0] = false;
+								createjs.Tween.get(card_16, {override:true}).to({scaleX:0.1, x:card_x[11]+75}, 300).call(handleComplete_card_16);
+								console.log("case 16：" + card_pre);
+								break;
+		
+							default:
+								console.log("case default");
+								break;
+						}
+						console.log( 'typeof card_num = ' + (typeof card_num) );
+		
 					}
 				}
-						
-			card_reverse(card_pre);
-			card_reverse(card_next);
-				
-			//元に戻す
-			card_pre = false;
-			card_next = false;
-			
-			}
-			
-			
-		}
-		
-		function card_reverse(m){
-			switch (m) {
-				case 1 :
-					handleComplete_card_01();
-					break;
-				case 2 :
-					handleComplete_card_02();
-					break;
-				case 3 :
-					handleComplete_card_03();
-					break;
-				case 4 :
-					handleComplete_card_04();
-					break;
-				case 5 :
-					handleComplete_card_05();
-					break;
-				
-				case 6 :
-					handleComplete_card_06();
-					break;
-				case 11 :
-					handleComplete_card_11();
-					break;
-				case 12 :
-					handleComplete_card_12();
-					break;
-				case 13 :
-					handleComplete_card_13();
-					break;
-				case 14 :
-					handleComplete_card_14();
-					break;
-				case 15 :
-					handleComplete_card_15();
-					break;
-				case 16 :
-					handleComplete_card_16();
-					break;
-			}
-		}
 	}
 
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// レイヤー_1
-	this.bug = new lib.bug();
-	this.bug.setTransform(108.55,74.6);
+	this.game_step = new cjs.Text("game_step", "24px 'Futura PT Demi'", "#333333");
+	this.game_step.name = "game_step";
+	this.game_step.lineHeight = 33;
+	this.game_step.lineWidth = 131;
+	this.game_step.parent = this;
+	this.game_step.setTransform(181,391.25);
 
-	this.timeline.addTween(cjs.Tween.get(this.bug).wait(1));
+	this.score = new cjs.Text("score", "24px 'Futura PT Demi'", "#333333");
+	this.score.name = "score";
+	this.score.lineHeight = 33;
+	this.score.lineWidth = 131;
+	this.score.parent = this;
+	this.score.setTransform(181,426);
+
+	this.instance = new lib.CachedBmp_4();
+	this.instance.setTransform(37,424,0.5,0.5);
+
+	this.instance_1 = new lib.CachedBmp_3();
+	this.instance_1.setTransform(37,386,0.5,0.5);
+
+	this.bug = new lib.bug();
+	this.bug.setTransform(-99.45,49.6);
+
+	this.instance_2 = new lib.CachedBmp_2();
+	this.instance_2.setTransform(0,0,0.5,0.5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.bug},{t:this.instance_1},{t:this.instance},{t:this.score},{t:this.game_step}]}).wait(1));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(564.1,280.1,-411,-161.00000000000003);
+p.nominalBounds = new cjs.Rectangle(356.1,250,643.9,209);
 // library properties:
 lib.properties = {
 	id: 'C49CF37110FA4EC681F38EF5BE599AC7',
@@ -737,7 +1099,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/sample_atlas_.png?1573543196509", id:"sample_atlas_"}
+		{src:"images/sample_atlas_.png?1573785573131", id:"sample_atlas_"}
 	],
 	preloads: []
 };
